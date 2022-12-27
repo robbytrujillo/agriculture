@@ -13,7 +13,20 @@
     $koneksi = mysqli_connect("localhost", "root", "", "pertanian") or die (mysqli_error());
     //fungsi tambah data (create)
     function tambah($koneksi) {
-        if ()
+        if (isset($POST['btn_simpan'])) {
+            $id = time();
+            $nama_tanaman = $_POST['nama_tanaman'];
+            $hasil = $_POST['hasil'];
+            $lama = $_POST['lama'];
+            $tanggal_panen = $_POST['tanggal_panen'];
+
+            if(!empty($nama_tanaman) && !empty($hasil) 
+            && !empty($lama) && !empty($tanggal_panen)) {
+                $sql = "INSERT INTO tabel_panen (id, nama_tanaman, hasil_panen, lama_tanam, tanggal_panen)
+                VALUES (".$id.", '".$nama_tanaman."', '".$hasil."', '".$lama."', '".$tanggal_panen."')"";
+                "
+            }
+        }
     }
 
 ?>
