@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,8 @@
     <link rel="icon" href="http://www.petanikode.com/favicon.ico" />
 </head>
 <body>
-    <?php
+  
+<?php
     //koneksi ke database
     $koneksi = mysqli_connect("localhost", "root", "", "pertanian") or die (mysqli_error());
     //fungsi tambah data (create)
@@ -23,19 +25,39 @@
             if(!empty($nama_tanaman) && !empty($hasil) 
             && !empty($lama) && !empty($tanggal_panen)) {
                 $sql = "INSERT INTO tabel_panen (id, nama_tanaman, hasil_panen, lama_tanam, tanggal_panen)
-                VALUES (".$id.", '".$nama_tanaman."', '".$hasil."', '".$lama."', '".$tanggal_panen."')"";
-                $simpan = mysqlii_query($koneksim $sql);
+                VALUES (".$id.", '".$nama_tanaman."', '".$hasil."', '".$lama."', '".$tanggal_panen."')";
+                $simpan = mysqli_query($koneksi, $sql);
                 if($simpan && isset($_GET['aksi'])) {
-                    if($_GET['alsi] == 'create'
-                        header('location: index.ph);
+                    if($_GET['aksi'] == 'create'){
+                        header('location: index.php');
                 } 
             }
         } else {
-            person = "Tidak dapat menyimpan, data belum kengkap;
+            $pesan = "Tidak dapat menyimpan, data belum kengkap";
     }
 }
 ?>
 
 
+<form action="" method="POST">
+    <fieldset>
+        <legend><h2>Tambah Data</h2></legend>
+        <label>Nama tanaman <input type="text" name="nama_tanaman" /></label><br>
+        <label>Hasil Panen<input type="number" name="hasil" /> kg</label><br>
+        <label>Lama Tanam<input type="number" name="lama" /> bulan</label><br>
+        <label>Tanggal Panen<input type="date" name="tanggal_panen" /></label><br>
+        <br>
+        <label>
+            <input type="submit" name="btn_simpan" value="Simpan" />
+            <input type="reset" name="reset" value="Bersihkan" />
+        </label>
+        <br>
+        <p><?php echo isset($pesan) ? $pesan : "" ?></p>
+    </fieldset>
+</form>
+
+<?php
+
+?>
 </body>
 </html>
