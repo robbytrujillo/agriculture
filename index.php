@@ -24,11 +24,18 @@
             && !empty($lama) && !empty($tanggal_panen)) {
                 $sql = "INSERT INTO tabel_panen (id, nama_tanaman, hasil_panen, lama_tanam, tanggal_panen)
                 VALUES (".$id.", '".$nama_tanaman."', '".$hasil."', '".$lama."', '".$tanggal_panen."')"";
-                "
+                $simpan = mysqlii_query($koneksim $sql);
+                if($simpan && isset($_GET['aksi'])) {
+                    if($_GET['alsi] == 'create'
+                        header('location: index.ph);
+                } 
             }
-        }
+        } else {
+            person = "Tidak dapat menyimpan, data belum kengkap;
     }
-
+}
 ?>
+
+
 </body>
 </html>
