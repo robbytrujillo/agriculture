@@ -100,6 +100,41 @@ function tampil_data($koneksi) {
             echo "</table>";
             echo "</fieldset>";
             }
+            // --Tutup fungsi Baca Data (Read)
+            // --Fungsi Ubah Data (Uodate)
+            function ubah($koneksi) {
+                //ubah data
+                if(isset($_POST['btn_ubah'])) {
+                    $id = $_POST['id'];
+                    $nama_tanaman = $_POST['nama_tanaman'];
+                    $hasil = $_POST['hasil'];
+                    $lama = $_POST['lama'];
+                    $tanggal_panen = $_POST['tanggal_panen'];
+                    
+                    if(!empty($nama_tanaman) 
+                    && !empty($hasil) 
+                    && !empty($lama)
+                    && !empty($tanggal_panen)) {
+                    $perubahan = "nama_tanaman='".$nama_tanaman."',
+                                 hasil_panen=".$hasil.",
+                                 lama_tanam=".$lama_tanam.",
+                                 tanggal_panen='".$tgl_panen."'";
+                    $sql_update = "UPDATE tabel_panen SET ".$perubahan." 
+                                   WHERE id=$id";
+                    $update = mysqli_query($koneksi, $sql_update);
+                    if($update && isset($_GET['aksi'])) {
+                        if($_GET['aksi'] == 'update') {
+                            header('loaction: index.php');
+                        }
+
+                        }
+                    }   else {
+                        $pesan = "Data tidak lengkap!";
+                    }                         
+                    }
+                }
+            }  
+            {}
 }
 
 ?>
