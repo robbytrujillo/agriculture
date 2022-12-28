@@ -57,6 +57,50 @@
 </form>
 
 <?php
+    }
+// -- Tutup fungsi tambah data
+// -- fungsi baca data (Read)
+function tampil_data($koneksi) {
+    $sql = "SELECT * FROM tabel_panen";
+    $query = mysqli_query($koneksi, $sql);
+
+    echo "<fieldset>";
+    echo "<legend><h2>Data Panen</h2></legend>";
+
+    echo "<table border='1' cellpadding='10'>";
+    echo "<tr>
+            <th>ID</th>
+            <th>Nama Tanaman</th>
+            <th>Hasil Panen</th>
+            <th>Lama Tanam</th>
+            <th>Tangga Panen</th>
+            <th>Tindakan</th>
+            </tr>";
+
+            while ($data = mysql_fetch_array($query)) {
+                ?>
+                <tr>
+                    <td><?php echo $data['id']; ?></td>
+                    <td><?php echo $data['nama_tanaman']; ?></td>
+                    <td><?php echo $data['hasil_panen']; ?></td>
+                    <td><?php echo $data['lama_tanam']; ?></td>
+                    <td><?php echo $data['tanggal_panen']; ?></td>
+                    <td>
+                        </a href="index.php?aksi=update&id=<?php 
+                        echo $data['id']; ?>&nama=<?php echo $data['nama_tanaman']; ?>
+                        &hasil=<?php echo $data['hasil_panen']; ?>
+                        &lama=<?php echo $data['lama_tanam']; ?>
+                        $tanggal=<?php echo $data['tanggal_panen']; ?>">Ubah</a> |
+                        </a href="index.php?aksi=update&id=<?php
+                        echo $data['id']; ?>">Hapus</a>
+                        </td>
+                    </tr>
+                    <?php 
+            }
+            echo "</table>";
+            echo "</fieldset>";
+            }
+}
 
 ?>
 </body>
