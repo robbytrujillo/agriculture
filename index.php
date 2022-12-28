@@ -86,12 +86,12 @@ function tampil_data($koneksi) {
                     <td><?php echo $data['lama_tanam']; ?></td>
                     <td><?php echo $data['tanggal_panen']; ?></td>
                     <td>
-                        </a href="index.php?aksi=update&id=<?php 
+                        <a href="index.php?aksi=update&id=<?php 
                         echo $data['id']; ?>&nama=<?php echo $data['nama_tanaman']; ?>
                         &hasil=<?php echo $data['hasil_panen']; ?>
                         &lama=<?php echo $data['lama_tanam']; ?>
                         $tanggal=<?php echo $data['tanggal_panen']; ?>">Ubah</a> |
-                        </a href="index.php?aksi=delete&id=<?php
+                        <a href="index.php?aksi=delete&id=<?php
                         echo $data['id']; ?>">Hapus</a>
                         </td>
                     </tr>
