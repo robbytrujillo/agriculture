@@ -33,7 +33,7 @@
                 } 
             }
         } else {
-            $pesan = "Tidak dapat menyimpan, data belum kengkap";
+            $pesan = "Tidak dapat menyimpan, data belum kengkap!";
     }
 }
 ?>
@@ -73,7 +73,7 @@ function tampil_data($koneksi) {
             <th>Nama Tanaman</th>
             <th>Hasil Panen</th>
             <th>Lama Tanam</th>
-            <th>Tangga Panen</th>
+            <th>Tanggal Panen</th>
             <th>Tindakan</th>
             </tr>";
 
@@ -91,7 +91,7 @@ function tampil_data($koneksi) {
                         &hasil=<?php echo $data['hasil_panen']; ?>
                         &lama=<?php echo $data['lama_tanam']; ?>
                         $tanggal=<?php echo $data['tanggal_panen']; ?>">Ubah</a> |
-                        </a href="index.php?aksi=update&id=<?php
+                        </a href="index.php?aksi=delete&id=<?php
                         echo $data['id']; ?>">Hapus</a>
                         </td>
                     </tr>
